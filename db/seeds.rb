@@ -2,8 +2,8 @@ require_relative("../models/artist")
 require_relative("../models/exhibition")
 require("pry-byebug")
 
-# Exhibition.delete_all()
-# Artist.delete_all()
+Exhibition.delete_all()
+Artist.delete_all()
 
 artist1 = Artist.new({
   "first_name" => "Fiona",
@@ -18,6 +18,10 @@ artist1 = Artist.new({
     })
 
     artist2.save()
+
+artist1.first_name = "Rique"
+artist1.update()
+
 
     exhibition1 = Exhibition.new({
       "name" => "Drawings of My Glasgow",
@@ -34,6 +38,10 @@ artist1 = Artist.new({
         })
 
         exhibition2.save()
+
+exhibition2.name = "Indas e Vindas"
+exhibition2.update()
+
 
         binding.pry
         nil
