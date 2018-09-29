@@ -11,4 +11,16 @@ class Exhibition
   end
 
 
+  def save()
+    sql = "INSERT INTO exhibitions(
+    name, category
+  )
+  VALUES (
+    $1, $2
+  )
+  RETURNING id"
+  values = [@name, @category]
+  results = SqlRunner.run(sql, values)
+  @id = results.first()['id'].to_i
+end
 end
