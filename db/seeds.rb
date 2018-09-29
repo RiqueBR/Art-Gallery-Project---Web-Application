@@ -19,8 +19,6 @@ artist1 = Artist.new({
 
     artist2.save()
 
-artist1.first_name = "Rique"
-artist1.update()
 
 
     exhibition1 = Exhibition.new({
@@ -38,9 +36,6 @@ artist1.update()
         })
 
         exhibition2.save()
-
-exhibition2.name = "Indas e Vindas"
-exhibition2.update()
 
 
         binding.pry

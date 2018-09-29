@@ -2,36 +2,44 @@ require_relative("../db/sql_runner")
 
 class Exhibition
 
-    attr_accessor :name, :category
-    attr_reader :id
+  attr_accessor :name, :category
+  attr_reader :id
 
-    def initialize(options)
-      @id = options["id"].to_i if options["id"]
-      @name = options["name"]
-      @category = options["category"]
-      @artist_id = options["artist_id"].to_i
-    end
+  def initialize(options)
+    @id = options["id"].to_i if options["id"]
+    @name = options["name"]
+    @category = options["category"]
+    @artist_id = options["artist_id"].to_i
+  end
 
 
-    def save()
-      sql = "INSERT INTO exhibitions(
-      name, category, artist_id
-    )
-    VALUES (
-      $1, $2, $3)
+  def save()
+    sql = "INSERT INTO exhibitions(
+    name, category, artist_id
+  )
+  VALUES (
+    $1, $2, $3)
     RETURNING id"
     values = [@name, @category, @artist_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
-def update
-  sql = "UPDATE exhibitions SET
-(name, category, artist_id) = ($1, $2, $3)
-WHERE id = $4"
-values = [@name, @category, @artist_id, @id]
-SqlRunner.run(sql, values)
-end
+  def update
+    sql = "UPDATE exhibitions SET
+    (name, category, artist_id) = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@name, @category, @artist_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def artist
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    results = SqlRunner.run(sql, values).first
+    return Artist.new(results)
+  end
+
 
 
   def self.find_all()
