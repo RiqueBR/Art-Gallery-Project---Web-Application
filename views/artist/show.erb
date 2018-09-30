@@ -1,0 +1,9 @@
+<h1>Artist in focus: </h1>
+
+
+<p><%= @artist.first_name %></p>
+<p><%= @artist.last_name %></p>
+
+<form action="/artist/<%= @artist.id %>/edit" method="get">
+  <input type="submit" value="Edit Artist">
+</form>
