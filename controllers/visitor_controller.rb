@@ -23,7 +23,6 @@ get '/artist/:id' do
   erb(:"artist/show")
 end
 
-
 post '/artist' do
   @artist = Artist.new(params)
   @artist.save()
@@ -57,4 +56,9 @@ post '/artist/:id/delete' do
   @artist.delete()
   redirect '/artist'
   (:"artist/show")
+end
+
+get '/exhibition/:id' do
+  @exhibition = Exhibition.find_id(params['id'].to_i)
+  erb(:"exhibition/show")
 end

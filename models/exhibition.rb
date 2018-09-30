@@ -53,16 +53,16 @@ class Exhibition
     SqlRunner.run(sql)
   end
 
-  def self.find_id()
+  def self.find_id(id)
     sql = "SELECT * FROM exhibitions WHERE id = $1"
     values = [id]
-    results = SqlRunner.run(sql, values)
-    return Exhibition.new(results.first())
+    result = SqlRunner.run(sql, values).first
+    return Exhibition.new(result)
   end
 
-  def self.delete(id)
+  def delete
     sql = "DELETE FROM exhibitions WHERE id = $1"
-    values = [id]
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 end
