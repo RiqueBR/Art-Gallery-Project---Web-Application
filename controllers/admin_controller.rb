@@ -17,3 +17,11 @@ end
 
 ## Remember to create a folder with artist views and exhibitions views
 ## Also, visitor will have a different layout look in comparison to admin
+
+get 'admin/artist/:id' do
+  @artist = Artist.find_id(params['id'].to_i)
+end
+
+get 'admin/exhibition/:id' do
+  @exhibition = Exhibition.find_id(params['id'].to_i)
+end
