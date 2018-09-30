@@ -31,6 +31,7 @@ post '/artist' do
 end
 
 get '/exhibition/new' do
+  @artists = Artist.find_all
   erb(:"exhibition/new")
 end
 
@@ -49,4 +50,11 @@ post '/artist/:id' do
   @artist = Artist.new(params)
   @artist.update()
   redirect '/artist'
+end
+
+post '/artist/:id/delete' do
+  @artist = Artist.find_id(params[:id])
+  @artist.delete()
+  redirect '/artist'
+  (:"artist/show")
 end
