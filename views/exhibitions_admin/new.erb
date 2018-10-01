@@ -1,4 +1,4 @@
-<form action="/exhibition" method="post">
+<form action="/admin/exhibition" method="post">
   <label for="name">Title:</label>
   <input type="text" name="name" id="name">
 
@@ -12,6 +12,8 @@
     <% end %>
   </select>
 
+  <label for="exhibition_info">Description:</label>
+  <input type="text" name="exhibition_info" id="exhibition_info">
 
   <input type="submit" value="Create">
 </form>

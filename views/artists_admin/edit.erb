@@ -1,12 +1,15 @@
 </h1>Edit Artist</h1>
 
-<form action="/artist/<%= @artist.id %>" method="post">
+<form action="/admin/artist/<%= @artist.id %>" method="post">
 
   <label for="first_name">First Name:</label>
   <input type="text" name="first_name" value="<%= @artist.first_name %>">
 
   <label for="last_name">Last Name:</label>
   <input type="text" name="last_name" value="<%= @artist.last_name %>">
+
+  <label for="artist_info">More about:</label>
+  <input type="text" name="artist_info" value="<%= @artist.artist_info%>">
 
   <input type="submit" value="Edit">
 

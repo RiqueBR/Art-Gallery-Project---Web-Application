@@ -3,11 +3,4 @@
 
 <p><%= @artist.first_name %></p>
 <p><%= @artist.last_name %></p>
-
-<form action="/artist/<%= @artist.id %>/edit" method="get">
-  <input type="submit" value="Edit Artist">
-</form>
-
-<form action="/artist/<%= @artist.id %>/delete" method="post">
-  <input type="submit" value="Delete">
-</form>
+<p><%= @artist.artist_info%></p>

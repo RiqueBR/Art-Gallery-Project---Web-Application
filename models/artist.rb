@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Artist
 
-  attr_accessor :first_name, :last_name
+  attr_accessor :first_name, :last_name, :artist_info
   attr_reader :id
 
 
@@ -10,25 +10,26 @@ class Artist
     @id = options["id"].to_i if options["id"]
     @first_name = options["first_name"]
     @last_name = options["last_name"]
+    @artist_info = options["artist_info"]
   end
 
   def save()
     sql = "INSERT INTO artists (
-    first_name, last_name
+    first_name, last_name, artist_info
   )
   VALUES (
-    $1, $2
+    $1, $2, $3
     ) RETURNING id"
-    values = [@first_name, @last_name]
+    values = [@first_name, @last_name, @artist_info]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update
     sql = "UPDATE artists SET
-    (first_name, last_name) = ($1, $2)
-    WHERE id = $3"
-    values = [@first_name, @last_name, @id]
+    (first_name, last_name, artist_info) = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@first_name, @last_name, @artist_info, @id]
     SqlRunner.run(sql, values)
   end
 

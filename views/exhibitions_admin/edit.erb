@@ -1,6 +1,6 @@
 <h1>Edit Exhibition</h1>
 
-<form action="/exhibition/<%= @exhibition.id %>" method="post">
+<form action="/admin/exhibition/<%= @exhibition.id %>" method="post">
   <label for="name">Title:</label>
   <input type="text" name="name" value="<%= @exhibition.name %>">
 
@@ -14,6 +14,8 @@
     <% end %>
   </select>
 
+  <label for="exhibition_info">Description:</label>
+  <input type="text" name="exhibition_info" value="<%= @exhibition.exhibition_info %>">
 
 <input type="submit" value="Edit">
 

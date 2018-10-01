@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Exhibition
 
-  attr_accessor :name, :category, :artist_id
+  attr_accessor :name, :category, :artist_id, :exhibition_info
   attr_reader :id
 
   def initialize(options)
@@ -10,26 +10,27 @@ class Exhibition
     @name = options["name"]
     @category = options["category"]
     @artist_id = options["artist_id"].to_i
+    @exhibition_info = options["exhibition_info"]
   end
 
 
   def save()
     sql = "INSERT INTO exhibitions(
-    name, category, artist_id
+    name, category, artist_id, exhibition_info
   )
   VALUES (
-    $1, $2, $3)
+    $1, $2, $3, $4)
     RETURNING id"
-    values = [@name, @category, @artist_id]
+    values = [@name, @category, @artist_id, @exhibition_info]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update
     sql = "UPDATE exhibitions SET
-    (name, category, artist_id) = ($1, $2, $3)
-    WHERE id = $4"
-    values = [@name, @category, @artist_id, @id]
+    (name, category, artist_id, exhibition_info) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@name, @category, @artist_id, @exhibition_info, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -57,10 +58,6 @@ class Exhibition
     result = SqlRunner.run(sql, values).first
     return Exhibition.new(result)
   end
-
-
-
-# Fix my delete function
 
   def delete()
     sql = "DELETE FROM exhibitions WHERE id = $1"
