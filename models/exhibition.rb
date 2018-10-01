@@ -40,8 +40,6 @@ class Exhibition
     return Artist.new(results)
   end
 
-
-
   def self.find_all()
     sql = "SELECT * FROM exhibitions"
     results = SqlRunner.run(sql)
@@ -53,16 +51,20 @@ class Exhibition
     SqlRunner.run(sql)
   end
 
-  def self.find_id()
+  def self.find_id(id)
     sql = "SELECT * FROM exhibitions WHERE id = $1"
-    values = [@id]
+    values = [id]
     result = SqlRunner.run(sql, values).first
     return Exhibition.new(result)
   end
 
-  def delete(id)
+
+
+# Fix my delete function
+
+  def delete()
     sql = "DELETE FROM exhibitions WHERE id = $1"
-    values = [id]
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 end

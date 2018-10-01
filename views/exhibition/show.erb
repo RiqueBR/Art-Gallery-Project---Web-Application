@@ -1,14 +1,14 @@
 <h1>Exhibition in Focus</h1>
 
-<p><%= @exhibition.name %></p>
+<p><%= @exhibition.name%></p>
 <p><%= @exhibition.category%></p>
-<p><%= @exhibition.artist %></p>
+<p><%= @exhibition.artist.first_name%></p>
 
 
-<!-- <form action="/exhibition/<%= @exhibition.id %>/edit" method="get">
+<form action="/exhibition/<%= @exhibition.id %>/edit" method="get">
   <input type="submit" value="Edit Exhibition">
 </form>
 
 <form action="/exhibition/<%= @exhibition.id %>/delete" method="post">
   <input type="submit" value="Delete">
-</form> -->
+</form>

@@ -19,7 +19,7 @@ get '/artist/new' do
 end
 
 get '/artist/:id' do
-  @artist = Artist.find_id(params['id'].to_i)
+  @artist = Artist.find_id(params['id'])
   erb(:"artist/show")
 end
 
@@ -57,10 +57,24 @@ post '/artist/:id/delete' do
 end
 
 get '/exhibition/:id' do
-  Exhibition.find_id(params['id'].to_i)
+  @exhibition = Exhibition.find_id(params['id'])
   erb(:"exhibition/show")
 end
 
 get '/exhibition/:id/edit' do
+  @artists = Artist.find_all()
+  @exhibition  = Exhibition.find_id(params['id'])
+  erb(:"exhibition/edit")
+end
 
+post '/exhibition/:id' do
+  @exhibition = Exhibition.new(params)
+  @exhibition.update()
+  redirect '/exhibition'
+end
+
+post '/exhibition/:id/delete' do
+  @artists = Artist.find_all
+  Exhibition.delete(params[:id])
+  redirect '/exhibition'
 end
