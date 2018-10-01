@@ -37,7 +37,7 @@ end
 post '/exhibition' do
   @exhibition = Exhibition.new(params)
   @exhibition.save()
-  erb(:"exhibition/new")
+  redirect '/exhibition'
 end
 
 get '/artist/:id/edit' do
