@@ -10,6 +10,7 @@ get '/artist' do
 end
 
 get '/exhibition' do
+  @artists = Artist.find_id
   @exhibitions = Exhibition.find_all()
   erb(:"exhibition/index")
 end
@@ -22,6 +23,17 @@ end
 get '/artist/:id' do
   @artist = Artist.find_id(params['id'])
   erb(:"artist/show")
+end
+
+get '/exhibition/filter' do
+  @artists = Artist.find_by_name(params['name'])
+  erb(:"exhibition/filter")
+end
+
+post '/exhibition/filter' do
+  @artists = Artist.find_by_name(params['name'])
+  erb(:"exhibition/filter")
+
 end
 
 # get '/artist/new' do

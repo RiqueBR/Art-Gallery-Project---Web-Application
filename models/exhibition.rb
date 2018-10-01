@@ -59,6 +59,13 @@ class Exhibition
     return Exhibition.new(result)
   end
 
+  def self.find_by_name(name)
+    sql = "SELECT * FROM exhibitions WHERE name = $1"
+    values = [name]
+    result = SqlRunner.run(sql, values).first
+    return Exhibition.new(result)
+
+
   def delete()
     sql = "DELETE FROM exhibitions WHERE id = $1"
     values = [@id]

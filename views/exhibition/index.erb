@@ -6,3 +6,14 @@
 <p>Artist: <%= exhibition.artist.first_name %>
 <p><a href="exhibition/<%= exhibition.id %>">More Information</a></p>
 <% end %>
+
+
+
+<form action="/exhibition/filter" method="post">
+<label for="find_by_artist">Find Artist:</label>
+  <select class="artist_id" name="artist_id">
+    <% for artist in @artists %>
+      <option value="<%= artist.find_by_name %>"><%= artist.first_name%></option>
+    <% end %>
+  </select>
+</form>
