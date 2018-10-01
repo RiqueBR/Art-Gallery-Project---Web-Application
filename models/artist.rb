@@ -50,7 +50,7 @@ class Artist
     return Artist.new(result)
   end
 
-  def delete
+  def delete()
     sql = "DELETE FROM artists WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)

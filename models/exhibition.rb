@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Exhibition
 
-  attr_accessor :name, :category
+  attr_accessor :name, :category, :artist_id
   attr_reader :id
 
   def initialize(options)
@@ -53,16 +53,16 @@ class Exhibition
     SqlRunner.run(sql)
   end
 
-  def self.find_id(id)
+  def self.find_id()
     sql = "SELECT * FROM exhibitions WHERE id = $1"
-    values = [id]
+    values = [@id]
     result = SqlRunner.run(sql, values).first
     return Exhibition.new(result)
   end
 
-  def delete
+  def delete(id)
     sql = "DELETE FROM exhibitions WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 end
