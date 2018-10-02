@@ -59,12 +59,12 @@ class Exhibition
     return Exhibition.new(result)
   end
 
-  # def self.find_by_name(name)
-  #   sql = "SELECT * FROM exhibitions WHERE artist.id name = $1"
-  #   values = [name]
-  #   result = SqlRunner.run(sql, values).first
-  #   return Exhibition.new(result)
-  # end
+def self.find_by_category(category)
+sql = "SELECT * FROM exhibitions WHERE category = $1"
+values = [category]
+result = SqlRunner.run(sql, values).first
+return Exhibition.new(result)
+end
 
 
   def delete()
