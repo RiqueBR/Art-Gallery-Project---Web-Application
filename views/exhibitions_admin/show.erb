@@ -4,7 +4,7 @@
 <p><%= @exhibition.category%></p>
 <p><%= @exhibition.artist.first_name%></p>
 <p><%= @exhibition.exhibition_info%></p>
-<img src="<%= @exhibition.exhibit_img%>" alt="<%=@exhibition.name%>">   
+<img class="image-container" src="<%= @exhibition.exhibit_img%>" alt="<%=@exhibition.name%>">   
 
 
 <form action="/admin/exhibition/<%= @exhibition.id %>/edit" method="get">

@@ -1,0 +1,9 @@
+.image-container {
+width: 200px;
+height: 200px;
+display: flex;
+transform: scale(0.75, 0.75)
+-ms-transform: scale(0.75, 0.75);
+-webkit-transform: scale(0.75, 0.75);
+align-content: flex-end;
+}
