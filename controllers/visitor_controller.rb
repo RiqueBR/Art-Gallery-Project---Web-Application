@@ -15,9 +15,6 @@ get '/exhibition' do
   erb(:"exhibition/index")
 end
 
-get '/exhibition/filter' do
-  @artists = Artist.exhibitions(params['first_name'])
-end
 
 post '/exhibition/filter' do
   artist = Artist.find_id(params['artist_id'])
