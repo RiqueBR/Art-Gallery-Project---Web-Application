@@ -33,6 +33,15 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def exhibitions
+    sql = "SELECT * FROM exhibitions WHERE exhibitions.id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return Exhibition.new(result)
+  end
+
+
+
   def self.find_all()
     sql = "SELECT * FROM artists"
     results = SqlRunner.run(sql)
