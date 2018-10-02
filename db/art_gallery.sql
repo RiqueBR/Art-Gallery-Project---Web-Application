@@ -7,7 +7,8 @@ CREATE TABLE artists (
   id SERIAL8 primary key,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
-  artist_info TEXT
+  artist_info TEXT,
+  artist_img TEXT
 );
 -- Potentially extra variables...
 
@@ -16,7 +17,8 @@ CREATE TABLE exhibitions (
   name VARCHAR(255),
   category VARCHAR(255),
   artist_id INT8 REFERENCES artists(id) ON DELETE CASCADE,
-  exhibition_info TEXT
+  exhibition_info TEXT,
+  exhibit_img TEXT
 );
 
 -- Again, potentially other variables or maybe a new class

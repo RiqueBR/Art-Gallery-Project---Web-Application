@@ -7,47 +7,42 @@ body {
 
 }
 
-
-.fill-box {
-  background-color: black;
-  justify-content: space-between;
-  flex-direction: row;
+.container {
   display: flex;
-  width: 90px;
-  height: 31px;
 }
 
-
-/* #box-1 {
+.container-1 {
+  border: 1px solid #FFF;
+  width: 300px;
+  height: 200px;
+  justify-content: space-around;
+  flex-wrap: wrap;
   background-color: black;
-  justify-content: space-between;
-  flex-direction: row;
-  display: flex;
-  width: 90px;
-  height: 31px;
 }
 
-#box-2 {
-  background-color: black;
-  flex-direction: row;
-  justify-content: space-between;
-  display: flex;
-  width: 90px;
-  height: 31px;
+.container-2 {
+  border: 1px solid #FFF;
+  width: 300px;
+  height: 200px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: blue;
 }
 
-#box-3 {
-  background-color: black;
-  justify-content: space-between;
-  display: flex;
-  width: 90px;
-  height: 31px;
+.container-3 {
+  border: 1px solid #FFF;
+  width: 300px;
+  height: 200px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: red;
 }
 
-#box-4 {
-  background-color: black;
-  justify-content: space-between;
-  display: flex;
-  width: 90px;
-  height: 31px;
-} */
+.container-4 {
+  border: 1px solid #FFF;
+  width: 300px;
+  height: 200px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: green;
+}

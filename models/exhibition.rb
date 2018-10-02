@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Exhibition
 
-  attr_accessor :name, :category, :artist_id, :exhibition_info
+  attr_accessor :name, :category, :artist_id, :exhibition_info, :exhibit_img
   attr_reader :id
 
   def initialize(options)
@@ -11,26 +11,27 @@ class Exhibition
     @category = options["category"]
     @artist_id = options["artist_id"].to_i
     @exhibition_info = options["exhibition_info"]
+    @exhibit_img = options["exhibit_img"]
   end
 
 
   def save()
     sql = "INSERT INTO exhibitions(
-    name, category, artist_id, exhibition_info
+    name, category, artist_id, exhibition_info, exhibit_img
   )
   VALUES (
-    $1, $2, $3, $4)
+    $1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@name, @category, @artist_id, @exhibition_info]
+    values = [@name, @category, @artist_id, @exhibition_info, @exhibit_img]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update
     sql = "UPDATE exhibitions SET
-    (name, category, artist_id, exhibition_info) = ($1, $2, $3, $4)
-    WHERE id = $5"
-    values = [@name, @category, @artist_id, @exhibition_info, @id]
+    (name, category, artist_id, exhibition_info, exhibit_img) = ($1, $2, $3, $4, $5)
+    WHERE id = $9"
+    values = [@name, @category, @artist_id, @exhibition_info, @exhibit_img, @id]
     SqlRunner.run(sql, values)
   end
 
