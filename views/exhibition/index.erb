@@ -21,6 +21,8 @@
     <p><a href="exhibition/<%= exhibition.id %>">More Information</a></p>
     <% end %>
   </div>
+
+
   <h1>Find your exhibit today:</h1>
 
   <form action="/exhibition/filter_by_artist" method="post">
@@ -38,7 +40,6 @@
   </form>
 
   <form action="/exhibition/filter_by_category" method="post">
-
   <label for="exhibition_filter_category">Select Artist:</label>
   <select id="category" name="category">
     <% for exhibition in @exhibitions %>

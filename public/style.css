@@ -1,75 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+
 h1 {
 
 }
 
 body {
   background-color: #FFFF;
-
+  font-family: "PT Sans", sans-serif;
 }
 
-.container-row-1 {
+
+img {
+  width: 80%;
+  height: 80%;
   display: flex;
-  flex-direction: row;
-  margin-bottom: 50px;
+
+  align-content: center;
 }
 
-.container-1 {
-  background-image: url("/images/dog1.jpg");
-  border: 1px solid #FFF;
-  width: 300px;
-  height: 200px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-left: 5px;
-  margin-right: 30px;
-}
-
-.container-2 {
-  background-image: url("/images/dog1.jpg");
-  border: 1px solid #FFF;
-  width: 300px;
-  height: 200px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.container-row-2{
+.container-all {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
+
 }
 
-.container-3 {
-  background-image: url("/images/dog1.jpg");
-  border: 1px solid #FFF;
-  width: 300px;
-  height: 200px;
-  margin-left: 60px;
-  margin-right: 30px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+.box-grouped {
+display: flex;
+flex-flow: row wrap;
+width: 60vw;
 }
 
-.container-4 {
-  background-image: url("/images/dog1.jpg");
+
+.box-1 {
   border: 1px solid #FFF;
-  width: 300px;
-  height: 200px;
+  width: 25%;
+  height: 30%;
   justify-content: space-around;
-  flex-wrap: wrap;
+}
+
+
+.box-2 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  width: 25%;
+  height: 30%;
+  justify-content: space-around;
+
+}
+
+
+.box-3 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  width: 49%;
+  height: 40%;
+  justify-content: space-around;
+}
+
+.box-4 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  width: 40%;
+  height: 40%;
+  justify-content: space-around;
 }
 
 .container-text {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  margin-right: 10px;
 }
 
 .text-area {
   width: 200px;
   height: auto;
-  border: 1px solid black;
 }
 
 .p {
   font-size: 14px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  color: black;
+}
+
+nav a {
+  text-decoration: none;
 }
