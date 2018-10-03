@@ -30,7 +30,7 @@ class Exhibition
   def update
     sql = "UPDATE exhibitions SET
     (name, category, artist_id, exhibition_info, exhibit_img) = ($1, $2, $3, $4, $5)
-    WHERE id = $9"
+    WHERE id = $6"
     values = [@name, @category, @artist_id, @exhibition_info, @exhibit_img, @id]
     SqlRunner.run(sql, values)
   end

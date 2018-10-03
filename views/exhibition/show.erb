@@ -1,7 +1,21 @@
-<h1>Exhibition in Focus</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style-exhibition-show.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exhibition</title>
+</head>
+<body>
 
-<p><%= @exhibition.name%></p>
-<p><%= @exhibition.category%></p>
-<p><%= @exhibition.artist.first_name%></p>
-<p><%= @exhibition.exhibition_info%></p>
-<img class="image-container" src="<%= @exhibition.exhibit_img%>" alt="<%=@exhibition.name%>">
+
+  <p><%= @exhibition.name%></p>
+  <p><%= @exhibition.category%></p>
+  <p><%= @exhibition.artist.first_name%></p>
+  <p><%= @exhibition.exhibition_info%></p>
+  <img class="image-container" src="<%= @exhibition.exhibit_img%>" alt="<%=@exhibition.name%>">
+
+
+</body>
+</html>

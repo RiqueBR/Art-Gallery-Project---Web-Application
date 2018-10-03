@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
+
 body {
-  background-color: #FFFF;
-  font-family: "PT Sans", sans-serif;
+    background-color: #FFFF;
+    font-family: "PT Sans", sans-serif;
 }
-
-
 
 img {
   width: 80%;
